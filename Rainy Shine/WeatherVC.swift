@@ -8,8 +8,9 @@
 
 import UIKit
 import Alamofire
+import CoreLocation
 
-class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var currentTempLabel: UILabel!
@@ -17,6 +18,12 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var currentWeatherIconImage: UIImageView!
     @IBOutlet weak var currentWeatherLabel: UILabel!
     
+    //Core Location
+    var locationManager = CLLocationManager()
+    var currentLocation : CLLocation!
+    
+    
+    //Data Models
     var currentWeather : CurrentWeather!
     var forecast : Forecast!
     var forecasts = [Forecast]()
@@ -26,21 +33,21 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        print(CURRENT_WEATHER_URL)
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
+        //Only uses when in use
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startMonitoringSignificantLocationChanges()
+ 
         currentWeather = CurrentWeather()
         
-        currentWeather.downloadWeatherDetails {
-            self.downloadForecastData {
-                //Setup UI to load downloaded data
-                self.updateMainUI()
-            }
-        }
+ 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationAuthStatus()
     }
     
     //MARK: TableView Delegate Functions
@@ -92,7 +99,7 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                         print(obj)
                     }
                     self.forecasts.remove(at: 0)
-                    self.forecasts.remove(at: 0)
+              
                     self.tableView.reloadData()
                     
                 }
@@ -100,5 +107,27 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             complete()
         }
     }
+    
+    func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            currentLocation = locationManager.location
+            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            print(currentLocation)
+            print(currentLocation.coordinate.latitude)
+            print(currentLocation.coordinate.longitude)
+            currentWeather.downloadWeatherDetails {
+                self.downloadForecastData {
+                    //Setup UI to load downloaded data
+                    self.updateMainUI()
+                }
+            }
+            
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+            locationAuthStatus()
+        }
+    }
+    
 }
 

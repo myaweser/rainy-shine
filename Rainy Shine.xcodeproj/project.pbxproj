@@ -18,6 +18,7 @@
 		D9671BCE1E1BAE7800422D87 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9671BCD1E1BAE7800422D87 /* Forecast.swift */; };
 		D9671BD31E1BBA3100422D87 /* Date + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9671BD21E1BBA3100422D87 /* Date + Ext.swift */; };
 		D9695CEC1E1BC64700E61BCC /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9695CEB1E1BC64700E61BCC /* WeatherCell.swift */; };
+		D9FE09E91E1C0233004F334E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FE09E81E1C0233004F334E /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D9671BCD1E1BAE7800422D87 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		D9671BD21E1BBA3100422D87 /* Date + Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date + Ext.swift"; sourceTree = "<group>"; };
 		D9695CEB1E1BC64700E61BCC /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		D9FE09E81E1C0233004F334E /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				D9671BCD1E1BAE7800422D87 /* Forecast.swift */,
 				D9671BD21E1BBA3100422D87 /* Date + Ext.swift */,
 				D9695CEB1E1BC64700E61BCC /* WeatherCell.swift */,
+				D9FE09E81E1C0233004F334E /* Location.swift */,
 			);
 			path = "Rainy Shine";
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			files = (
 				D92D9CEF1E1331D4002B30FF /* WeatherVC.swift in Sources */,
 				D9671BD31E1BBA3100422D87 /* Date + Ext.swift in Sources */,
+				D9FE09E91E1C0233004F334E /* Location.swift in Sources */,
 				D92D9CED1E1331D4002B30FF /* AppDelegate.swift in Sources */,
 				D92CA8A61E1B1DCF00A500D6 /* CurrentWeather.swift in Sources */,
 				D92CA8A41E1B19D700A500D6 /* Constants.swift in Sources */,
