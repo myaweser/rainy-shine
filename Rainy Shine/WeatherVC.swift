@@ -50,12 +50,17 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return forecasts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
-        return cell
+        let currentForecast = forecasts[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as? WeatherCell {
+            cell.configureCell(forecast: currentForecast)
+            return cell
+        }else {
+            return UITableViewCell()
+        }
     }
     
     //MARK: Helper Functions
@@ -86,6 +91,9 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                         self.forecasts.append(forecast)
                         print(obj)
                     }
+                    self.forecasts.remove(at: 0)
+                    self.forecasts.remove(at: 0)
+                    self.tableView.reloadData()
                     
                 }
             }
