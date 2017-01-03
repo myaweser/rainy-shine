@@ -15,6 +15,8 @@
 		D92D9CF21E1331D4002B30FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D92D9CF01E1331D4002B30FF /* Main.storyboard */; };
 		D92D9CF41E1331D4002B30FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D92D9CF31E1331D4002B30FF /* Assets.xcassets */; };
 		D92D9CF71E1331D4002B30FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D92D9CF51E1331D4002B30FF /* LaunchScreen.storyboard */; };
+		D9671BCE1E1BAE7800422D87 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9671BCD1E1BAE7800422D87 /* Forecast.swift */; };
+		D9671BD31E1BBA3100422D87 /* Date + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9671BD21E1BBA3100422D87 /* Date + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		D92D9CF31E1331D4002B30FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D92D9CF61E1331D4002B30FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D92D9CF81E1331D4002B30FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9671BCD1E1BAE7800422D87 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		D9671BD21E1BBA3100422D87 /* Date + Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				D92D9CF81E1331D4002B30FF /* Info.plist */,
 				D92CA8A31E1B19D700A500D6 /* Constants.swift */,
 				D92CA8A51E1B1DCF00A500D6 /* CurrentWeather.swift */,
+				D9671BCD1E1BAE7800422D87 /* Forecast.swift */,
+				D9671BD21E1BBA3100422D87 /* Date + Ext.swift */,
 			);
 			path = "Rainy Shine";
 			sourceTree = "<group>";
@@ -220,9 +226,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92D9CEF1E1331D4002B30FF /* WeatherVC.swift in Sources */,
+				D9671BD31E1BBA3100422D87 /* Date + Ext.swift in Sources */,
 				D92D9CED1E1331D4002B30FF /* AppDelegate.swift in Sources */,
 				D92CA8A61E1B1DCF00A500D6 /* CurrentWeather.swift in Sources */,
 				D92CA8A41E1B19D700A500D6 /* Constants.swift in Sources */,
+				D9671BCE1E1BAE7800422D87 /* Forecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

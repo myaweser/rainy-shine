@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -17,6 +18,8 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var currentWeatherLabel: UILabel!
     
     var currentWeather : CurrentWeather!
+    var forecast : Forecast!
+    var forecasts = [Forecast]()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -26,9 +29,12 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         print(CURRENT_WEATHER_URL)
         
         currentWeather = CurrentWeather()
+        
         currentWeather.downloadWeatherDetails {
-            //Setup UI to load downloaded data
-            self.updateMainUI()
+            self.downloadForecastData {
+                //Setup UI to load downloaded data
+                self.updateMainUI()
+            }
         }
     }
 
@@ -62,7 +68,29 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         currentWeatherIconImage.image = UIImage(named: currentWeather.weatherType)
         
     }
-
-
+    
+    func downloadForecastData(complete : @escaping DownloadComplete) {
+        //Download forecast weather data for TableView
+        
+        let forecastURL = URL(string : FORECAST_URL)!
+        Alamofire.request(forecastURL).responseJSON { response in
+            print(response)
+            let result = response.result
+            print(result)
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    
+                    for obj in list {
+                        let forecast = Forecast(weatherDict : obj)
+                        self.forecasts.append(forecast)
+                        print(obj)
+                    }
+                    
+                }
+            }
+            complete()
+        }
+    }
 }
 
