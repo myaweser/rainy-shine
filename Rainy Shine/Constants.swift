@@ -16,5 +16,7 @@ let LONGITUDE = "&lon="
 let APP_ID = "&appid="
 let API_KEY = "5125027ae3508c7cb4b67db2f80e473a"
 
-let CURRENT_WEATHER_URL = "\(BASE_URL)\(LATITUDE)\(LONGITUDE)\(APP_ID)\(API_KEY)"
+typealias DownloadComplete = () -> ()
+
+let CURRENT_WEATHER_URL = "\(BASE_URL)\(LATITUDE)35\(LONGITUDE)139\(APP_ID)\(API_KEY)"
 
