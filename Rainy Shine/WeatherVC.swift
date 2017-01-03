@@ -16,7 +16,7 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var currentWeatherIconImage: UIImageView!
     @IBOutlet weak var currentWeatherLabel: UILabel!
     
-    var currentWeather = CurrentWeather()
+    var currentWeather : CurrentWeather!
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -24,8 +24,11 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         print(CURRENT_WEATHER_URL)
+        
+        currentWeather = CurrentWeather()
         currentWeather.downloadWeatherDetails {
             //Setup UI to load downloaded data
+            self.updateMainUI()
         }
     }
 
@@ -33,6 +36,8 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: TableView Delegate Functions
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -45,6 +50,17 @@ class WeatherVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
         return cell
+    }
+    
+    //MARK: Helper Functions
+    
+    func updateMainUI() {
+        dateLabel.text = currentWeather.date
+        currentTempLabel.text = "\(currentWeather.currentTemp)"
+        currentWeatherLabel.text = currentWeather.weatherType
+        currentLocationLabel.text = currentWeather.cityName
+        currentWeatherIconImage.image = UIImage(named: currentWeather.weatherType)
+        
     }
 
 
