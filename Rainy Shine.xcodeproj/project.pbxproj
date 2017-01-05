@@ -90,20 +90,52 @@
 		D92D9CEB1E1331D4002B30FF /* Rainy Shine */ = {
 			isa = PBXGroup;
 			children = (
+				D991AADA1E1EDB32008BC4FC /* Utility */,
+				D991AAD91E1EDAF9008BC4FC /* Controller */,
+				D991AAD81E1EDAF2008BC4FC /* View */,
+				D991AAD71E1EDAED008BC4FC /* Model */,
 				D92D9CEC1E1331D4002B30FF /* AppDelegate.swift */,
-				D92D9CEE1E1331D4002B30FF /* WeatherVC.swift */,
-				D92D9CF01E1331D4002B30FF /* Main.storyboard */,
 				D92D9CF31E1331D4002B30FF /* Assets.xcassets */,
 				D92D9CF51E1331D4002B30FF /* LaunchScreen.storyboard */,
 				D92D9CF81E1331D4002B30FF /* Info.plist */,
-				D92CA8A31E1B19D700A500D6 /* Constants.swift */,
-				D92CA8A51E1B1DCF00A500D6 /* CurrentWeather.swift */,
-				D9671BCD1E1BAE7800422D87 /* Forecast.swift */,
-				D9671BD21E1BBA3100422D87 /* Date + Ext.swift */,
-				D9695CEB1E1BC64700E61BCC /* WeatherCell.swift */,
-				D9FE09E81E1C0233004F334E /* Location.swift */,
 			);
 			path = "Rainy Shine";
+			sourceTree = "<group>";
+		};
+		D991AAD71E1EDAED008BC4FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9671BCD1E1BAE7800422D87 /* Forecast.swift */,
+				D92CA8A51E1B1DCF00A500D6 /* CurrentWeather.swift */,
+				D9FE09E81E1C0233004F334E /* Location.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D991AAD81E1EDAF2008BC4FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9695CEB1E1BC64700E61BCC /* WeatherCell.swift */,
+				D92D9CF01E1331D4002B30FF /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D991AAD91E1EDAF9008BC4FC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D92D9CEE1E1331D4002B30FF /* WeatherVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D991AADA1E1EDB32008BC4FC /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D92CA8A31E1B19D700A500D6 /* Constants.swift */,
+				D9671BD21E1BBA3100422D87 /* Date + Ext.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
