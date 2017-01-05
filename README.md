@@ -1,5 +1,7 @@
 # Rainy Shine Weather App
 
+![alt text](https://github.com/rpramirez87/rainy-shine/blob/master/User%20Interface%20Screenshot.png "Logo Title Text 1")
+
 This is a simple iOS app that informs users weather forecast based on their geographic location. 
 
 #### How it works
